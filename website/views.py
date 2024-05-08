@@ -58,7 +58,10 @@ def add_url():
             flash('please enter a URL!')
             return redirect(url_for('views.add_url'))
         
-        time_now = str(datetime.datetime.now())
+        utc_now = datetime.datetime.now(datetime.UTC)
+        ist_offset = datetime.timedelta(hours=5, minutes=30)
+        ist_now = utc_now + ist_offset
+        time_now = ist_now.strftime("%Y-%m-%d %H:%M:%S")
         referrer = request.headers.get('Referer')
         url_data = conn.execute('INSERT INTO urls (original_url,last_updated,referrer) VALUES (?,?,?)', (url,time_now,referrer))
         conn.commit()
@@ -82,7 +85,10 @@ def url_redirect(id):
         original_url = url_data['original_url']
         clicks = url_data['clicks']
         referrer = request.headers.get('Referer')
-        time_now = str(datetime.datetime.now())
+        utc_now = datetime.datetime.now(datetime.UTC)
+        ist_offset = datetime.timedelta(hours=5, minutes=30)
+        ist_now = utc_now + ist_offset
+        time_now = ist_now.strftime("%Y-%m-%d %H:%M:%S")
         conn.execute('UPDATE urls SET clicks = ?,referrer=?,last_updated=? WHERE id = ?',(clicks+1,referrer,time_now, original_id))
         conn.commit()
         conn.close()
