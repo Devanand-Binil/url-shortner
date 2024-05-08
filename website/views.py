@@ -83,7 +83,7 @@ def url_redirect(id):
         clicks = url_data['clicks']
         referrer = request.headers.get('Referer')
         time_now = str(datetime.datetime.now())
-        conn.execute('UPDATE urls SET clicks = ?,referrer=?,last_updated=?, WHERE id = ?',(clicks+1,referrer,time_now, original_id))
+        conn.execute('UPDATE urls SET clicks = ?,referrer=?,last_updated=? WHERE id = ?',(clicks+1,referrer,time_now, original_id))
         conn.commit()
         conn.close()
         return redirect(original_url)
