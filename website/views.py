@@ -6,6 +6,7 @@ from . import db
 from hashids import Hashids
 import json
 import sqlite3
+import datetime
 views = Blueprint('views', __name__)
 
 def get_db_connection():
@@ -59,7 +60,7 @@ def add_url():
         
         ip_addr = request.remote_addr
         referrer = request.headers.get('Referer')
-        url_data = conn.execute('INSERT INTO urls (original_url,ip,country) VALUES (?,?,?)', (url,ip_addr,referrer))
+        url_data = conn.execute('INSERT INTO urls (original_url,ip,referrer) VALUES (?,?,?)', (url,ip_addr,referrer))
         conn.commit()
         conn.close()
 
@@ -81,7 +82,8 @@ def url_redirect(id):
         original_url = url_data['original_url']
         clicks = url_data['clicks']
         referrer = request.headers.get('Referer')
-        conn.execute('UPDATE urls SET clicks = ?,country=? WHERE id = ?',(clicks+1,referrer,original_id))
+        time_now = str(datetime.datetime.now())
+        conn.execute('UPDATE urls SET clicks = ?,referrer=?,last_updated=?, WHERE id = ?',(clicks+1,referrer,time_now, original_id))
         conn.commit()
         conn.close()
         return redirect(original_url)
@@ -93,7 +95,7 @@ def url_redirect(id):
 @views.route('/stats')
 def stats():
     conn = get_db_connection()
-    db_urls = conn.execute('SELECT id, created, original_url, clicks,ip,country FROM urls').fetchall()
+    db_urls = conn.execute('SELECT id, created, original_url, clicks,referrer,last_updated FROM urls').fetchall()
     conn.close()
 
     urls = []
