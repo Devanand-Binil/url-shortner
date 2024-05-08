@@ -104,5 +104,6 @@ def stats():
         
         url['short_url'] = request.host_url + hashids.encode(url['id'])
         urls.append(url)
+    print(urls)
 
     return render_template('analytics.html', urls=urls,user=current_user)
