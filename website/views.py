@@ -58,9 +58,9 @@ def add_url():
             flash('please enter a URL!')
             return redirect(url_for('views.add_url'))
         
-        ip_addr = request.remote_addr
+        time_now = str(datetime.datetime.now())
         referrer = request.headers.get('Referer')
-        url_data = conn.execute('INSERT INTO urls (original_url,ip,referrer) VALUES (?,?,?)', (url,ip_addr,referrer))
+        url_data = conn.execute('INSERT INTO urls (original_url,last_updated,referrer) VALUES (?,?,?)', (url,time_now,referrer))
         conn.commit()
         conn.close()
 
