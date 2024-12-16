@@ -1,29 +1,101 @@
-# URL SHORTNER
+# URL Shortner
 
-## Setup guide
+## Overview
+This URL Shortner is built using **Flask**, offering a secure and user-friendly platform for managing URL redirections with analytics and additional features. The application ensures data integrity and security through encryption and hashing mechanisms while providing a seamless dashboard experience.
 
-1. Clone the repository using
-```bash
-git clone https://github.com/Devanand-Binil/url-shortner.git
-```
+## Features
 
-2. Change directory into project using
-```bash
-cd url-shortner/
-```
+1. **User Authentication**  
+   - Login system with real-time alerts and validation.  
+   - User credentials are encrypted and hashed using robust algorithms before being stored in an SQL database.
 
-3. Create a virtual environment and install dependencies
-```bash
-python -m venv env
+2. **Dashboard**  
+   - **Add URL**: Add a new URL for redirection.  
+   - **View Analytics**: View details such as:
+     - Short URL.  
+     - Long URL.  
+     - Date of addition.  
+     - Number of clicks.  
+   - **Add Notes**: A unique feature allowing users to save custom notes for each URL.
 
-source ./env/bin/Activate # If on Linux
+## Technical Details
 
-.\env\Scripts\activate.bat # On Windows
+- **Framework**: Flask (Python-based lightweight web framework).  
+- **Database**: SQL-based database for secure data storage.  
+- **Data Security**:
+  - Data encryption using industry-standard algorithms.  
+  - Passwords are hashed to enhance security.
+- **Frontend**: HTML, CSS, and JavaScript for a responsive and interactive user interface.
+- **Backend**: Python with Flask to handle server-side logic.  
+- **Libraries Used**:
+  - Flask-WTF for form handling and validation.  
+  - SQLAlchemy for database interactions.  
+  - Bcrypt for hashing passwords.
 
-pip install -r requirements.txt
-```
+## Installation
 
-4. Run the app using
-```bash
-python main.py
-```
+1. Clone the repository using:
+   ```bash
+   git clone https://github.com/Devanand-Binil/url-shortner.git
+   ```
+
+2. Change directory into the project using:
+   ```bash
+   cd url-shortner/
+   ```
+
+3. Create a virtual environment and install dependencies:
+   ```bash
+   python -m venv env
+
+   source ./env/bin/Activate  # If on Linux
+
+   .\env\Scripts\activate.bat  # On Windows
+
+   pip install -r requirements.txt
+   ```
+
+4. Run the app using:
+   ```bash
+   python main.py
+   ```
+
+## Usage
+
+- Register and log in to access the dashboard.
+- Add URLs for redirection and manage them with ease.
+- View analytics to track the performance of your URLs.
+- Save custom notes for personalized URL management.
+
+## Deployment
+
+You can access the deployed application [here](https://your-deployed-url.com).
+
+
+## Contributing
+
+Contributions are welcome! Please fork the repository, create a feature branch, and submit a pull request.
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+## Screenshots
+
+1. **Login Page**
+   ![Login Page](path/to/screenshot-login.png)
+
+2. **Dashboard**
+   ![Dashboard](path/to/screenshot-dashboard.png)
+
+3. **Add URL Page**
+   ![Add URL Page](path/to/screenshot-add-url.png)
+
+4. **Analytics Page**
+   ![Analytics Page](path/to/screenshot-analytics.png)
+
+5. **Notes Feature**
+   ![Notes Feature](path/to/screenshot-notes.png)
+
+---
+
