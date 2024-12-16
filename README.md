@@ -69,7 +69,8 @@ This URL Shortner is built using **Flask**, offering a secure and user-friendly 
 
 ## Deployment
 
-You can access the deployed application [here](https://url-shortner-zq25.onrender.com/).
+You can access the deployed application [URL Shortner](https://url-shortner-zq25.onrender.com/).
+Please wait for 30 sec and reload . The website might have cycled down to cold storage 
 
 
 ## Contributing
