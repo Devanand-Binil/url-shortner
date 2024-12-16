@@ -82,20 +82,11 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 ## Screenshots
 
-1. **Login Page**
-   ![Login Page](path/to/screenshot-login.png)
-
-2. **Dashboard**
-   ![Dashboard](path/to/screenshot-dashboard.png)
-
-3. **Add URL Page**
-   ![Add URL Page](path/to/screenshot-add-url.png)
-
-4. **Analytics Page**
-   ![Analytics Page](path/to/screenshot-analytics.png)
-
-5. **Notes Feature**
-   ![Notes Feature](path/to/screenshot-notes.png)
+   ![Login Page](screenshots/login.png)
+    ![Login Page](screenshots/signup.png)
+   ![Dashboard](screenshots/dashboard.png)
+   ![Add URL Page](screenshots/addurl.png)
+   ![Analytics Page](screenshots/analytics.png)
 
 ---
 
